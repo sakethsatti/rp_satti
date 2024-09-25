@@ -1,0 +1,156 @@
+/* ----------------- Class CSS ----------------- */
+
+body {
+    background-color: #EFFFC8;
+    font-family: "DM Sans", sans-serif;
+    color: #100B00;
+}
+
+.about {
+    width: 400px;
+    margin: auto;
+}
+
+.about-team {
+    color: rgb(82, 81, 81)
+}
+
+.authors {
+    background-color: #dbe3e7;
+}
+
+.footer {
+    background-color: #29274C;
+}
+
+.icon-white {
+    /* Arrow icon at bottom of page */
+    color: #FFFFFF;
+}
+
+.nb-extra {
+    /* navbar extra properties */
+    font-size: 1.2rem;
+}
+
+.nb-colors {
+    /* navbar background color */
+    background-color: rgba(24, 49, 79, 0.902);
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    font-family: "DM Sans", sans-serif;
+}
+
+.navbar-icon-image {
+    width: 15%;
+    height: 15%;
+    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+}
+
+.nbMenuItem {
+    /* navbar link text properties */
+    font-size: 4rem;
+}
+
+.overview {
+    color: #100B00;
+}
+
+.ovPadLeft {
+    padding-left: 1rem;
+}
+
+.ovPadRight {
+    padding-right: 1rem;
+}
+
+.procedure {
+    background-color: #dbe3e7;
+    padding: 1px;
+}
+
+.showcase {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.showcase-text {
+    color: #004346;
+    width: 51%;
+    flex-shrink: 0;
+}
+
+.showcase-background {
+    background-color: #94BFBE;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline-style: solid;
+    outline-color: #100B00;
+    outline-width: thick;
+    width: 45%;
+    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+    flex-shrink:0;
+}
+
+.figure-results {
+    background-color: #A5CBC3;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline-style: solid;
+    outline-color: #100B00;
+    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+    outline-width: thick;
+}
+
+@media (max-width: 964px) {
+    .showcase-background {
+        width: 90%;
+        /* Set width for medium and larger screens */
+    }
+    .showcase-text {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+    .showcase-background {
+        width: 60%;
+        /* Set width for medium and larger screens */
+    }
+    .showcase-text {
+        width: 60%;
+    }
+}
+
+
+/* ----------------- ID CSS ----------------- */
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}
