@@ -43,6 +43,78 @@ body {
     border-radius: 1rem;    
     border-width: 0px;
     margin-bottom: 5rem;
+    border-radius: 2rem;
+    border: 2px;
+    outline-style: solid;
+    outline-color: #100B00;
+    outline-width: thick;
+}
+
+/* Add these styles to your existing CSS file */
+
+.carousel-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carousel-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-image img {
+    max-width: 50%;
+    height: auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #29274C;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.procedure-slides {
+    background-color: #94BFBE;
+    padding: 2rem 6rem;
+    border-radius: 2rem;
+    border: 2px solid #100B00;
+    outline: thick solid #100B00;
+    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+}
+
+.carousel h2 {
+    color: #29274C;
+    margin-bottom: 15px;
+}
+
+/* Update the existing .logos class */
+.logos {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
 }
 
 .nb-colors {
@@ -144,6 +216,33 @@ body {
         width: 60%;
     }
 }
+
+@media (min-width: 768px) {
+    .carousel-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .carousel-text {
+        flex: 1;
+        text-align: left;
+        padding-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .carousel-image {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .container[style="height: 80vh"] {
+        height: auto !important;
+        min-height: 80vh;
+    }
+}
+
+
 
 
 /* ----------------- ID CSS ----------------- */
