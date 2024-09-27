@@ -31,7 +31,6 @@ body {
 .nb-extra {
     /* navbar extra properties */
     font-size: 1.2rem;
-    flex-wrap: nowrap;
 }
 
 .team {
