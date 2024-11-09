@@ -24,13 +24,27 @@ async function getData() {
     return { xEpochs, yTrain, yVal };
 }
 
+let myChart = null;
+
+function getAspectRatio() {
+    const viewportWidth = window.innerWidth;
+
+    if (viewportWidth < 768) { 
+        return 1; 
+    } else {
+        return 2;
+    }
+}
+
 async function createChart() {
     const lossChart = document.getElementById('lossChart');
     const data = await getData();
-
-    console.log(data);
-
-    const myChart = new Chart(lossChart, {
+    
+    if (myChart) {
+        myChart.destroy();
+    }
+    
+    myChart = new Chart(lossChart, {
         type: "line",
         data: {
             labels: data.xEpochs,
@@ -55,13 +69,15 @@ async function createChart() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: getAspectRatio(), // Dynamically set aspect ratio
             scales: {
                 x: {
                     title: {
                         display: true,
                         text: "Epochs",
                         font: {
-                            size: 16,
+                            size: window.innerWidth < 768 ? 14 : 16,
                             family: "DM Sans"
                         }
                     },
@@ -69,7 +85,7 @@ async function createChart() {
                         callback(val, index) {
                             return index % 10 === 0 ? this.getLabelForValue(val) : ""
                         },
-                        font: { size: 10 }
+                        font: { size: window.innerWidth < 768 ? 8 : 10 }
                     },
                     grid: {
                         color: "#6c767e"
@@ -78,17 +94,16 @@ async function createChart() {
                 y: {
                     title: {
                         display: true,
-                        text: 'Loss Value',        // y-axis title
+                        text: 'Loss Value',
                         font: {
-                            size: 16,
+                            size: window.innerWidth < 768 ? 14 : 16,
                             family: "DM Sans"
                         }
                     },
-
                     ticks: {
                         maxTicksLimit: data.yVal.length,
                         font: {
-                            size: 12
+                            size: window.innerWidth < 768 ? 14 : 16
                         }
                     },
                     grid: {
@@ -99,19 +114,24 @@ async function createChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "Chart of Model's Training and Validation Loss during Ten Epochs",
+                    text: ["Chart of Model's Training and Validation Loss during Ten Epochs"],
                     font: {
-                        size: 30,
+                        size: window.innerWidth < 768 ? 20 : 30,
                         family: "DM Sans"
                     },
                     padding: {
                         top: 10,
-                        bottom: 30
+                        bottom: window.innerWidth < 768 ? 20 : 30
                     }
                 },
                 legend: {
                     align: "center",
-                    position: "bottom"
+                    position: "bottom",
+                    labels: {
+                        font: {
+                            size: window.innerWidth < 768 ? 10 : 12
+                        }
+                    }
                 }
             }
         }
@@ -120,4 +140,22 @@ async function createChart() {
 
 Chart.defaults.color = '#000';
 
+// Add resize handler with debouncing (prevents rendering too many times)
+window.addEventListener('resize', debounce(() => {
+    createChart();
+}, 5));
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Initial chart creation
 createChart();

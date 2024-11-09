@@ -187,49 +187,6 @@ body {
     flex-shrink:0;
 }
 
-.figure-results {
-    background-color: #A5CBC3;
-    padding: 1rem;
-    border-radius: 1rem;
-    outline-style: solid;
-    outline-color: #100B00;
-    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
-    outline-width: thick;
-}
-
-.chart-container {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1200px;
-}
-
-.title {
-    color: #2d3748;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-canvas {
-    background-color: #E6E4CE;
-    max-height: 600px;
-}
-
-@media (max-width: 768px) {
-    .chart-container {
-        padding: 15px;
-        margin: 10px;
-    }
-    
-    .title {
-        font-size: 20px;
-    }
-}
-
 @media (max-width: 964px) {
     .showcase-background {
         width: 90%;
@@ -275,6 +232,22 @@ canvas {
     }
 }
 
+/* Results Page */
+.figure-results {
+    background-color: #A5CBC3;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline-style: solid;
+    outline-color: #100B00;
+    filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+    outline-width: thick;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
 
 
 /* ----------------- ID CSS ----------------- */
